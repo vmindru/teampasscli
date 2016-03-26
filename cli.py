@@ -8,6 +8,7 @@ import pycurl
 progvers = 0.1
 
 KEY = os.environ['TIM_KEY']
+URL = os.environ['TIM_URL']
 
 
 class BuildOpts:
@@ -45,14 +46,14 @@ class BuildOpts:
             exit(1)
 
 
-class URL:
+class BUILD_URL:
     def __init__(self, opts):
-        self.URL = ''
+        self.REQUEST_URL = ''
         self.REQUEST = opts.request
         self.build_url()
 
     def build_url(self, REQUEST):
-        self.URL = (os.environ['TIM_URL'] +
+        self.REQUEST_URL = (os.environ['TIM_URL'] +
                     '/api/index.php' +
                     REQUEST+'?apikey=' +
                     KEY)
